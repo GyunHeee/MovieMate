@@ -29,6 +29,17 @@ export default function Home() {
           text={mainMovie.overview}
         />
       )}
+
+      <div style={{ width: '85%', margin: '1rem auto' }}>
+        <h2>Movies by latest</h2>
+        <hr />
+
+        {/*Movie Grid Cards */}
+      </div>
+
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <button>Load More</button>
+      </div>
     </div>
   );
 }
