@@ -1,0 +1,7 @@
+.container {
+  height: '500px';
+  background: '100%,cover';
+  background: 'center,center';
+  width: '100%';
+  position: 'relative';
+}
