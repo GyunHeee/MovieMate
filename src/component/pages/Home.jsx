@@ -60,7 +60,11 @@ export default function Home() {
             movies.map((movie) => (
               <GridCards
                 key={movie.id}
-                image={`${IMAGE_BASE_URL}w500/${movie.backdrop_path}`}
+                image={
+                  movie.poster_path
+                    ? `${IMAGE_BASE_URL}w500/${movie.poster_path}`
+                    : `${IMAGE_BASE_URL}w500/${movie.backdrop_path}`
+                }
                 movieId={movie.id}
                 movieName={movie.original_title}
               />
