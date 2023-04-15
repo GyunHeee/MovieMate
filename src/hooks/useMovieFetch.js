@@ -12,7 +12,6 @@ export default function useMovieFetch(page) {
     axios
       .get(endpoint)
       .then((res) => {
-        console.log(res);
         setMovies((prev) => [...prev, ...res.data.results]);
         setMainMovie(res.data.results[0]);
       })

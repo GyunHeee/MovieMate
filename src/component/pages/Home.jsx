@@ -48,7 +48,7 @@ export default function Home() {
       </div>
 
       <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <button onClick={loadMoreItems}>Load More</button>
+        <button onClick={loadMoreItems}>More Movies</button>
       </div>
     </div>
   );
