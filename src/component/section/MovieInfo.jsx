@@ -12,7 +12,7 @@ export default function MovieInfo({ movie }) {
       </Descriptions.Item>
       <Descriptions.Item label="revenue">{movie.revenue}</Descriptions.Item>
       <Descriptions.Item label="runtime">{movie.runtime}</Descriptions.Item>
-      <Descriptions.Item label="vote_average" span={2}>
+      <Descriptions.Item label="vote_average" span={1}>
         {movie.vote_average}
       </Descriptions.Item>
       <Descriptions.Item label="vote_count">

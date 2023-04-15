@@ -22,7 +22,6 @@ export default function MovieDetail() {
   useEffect(() => {
     const endpointInfo = `${API_URL}movie/${movieId}?api_key=${API_KEY}`;
     const endpointCrew = `${API_URL}movie/${movieId}/credits?api_key=${API_KEY}`;
-    console.log(endpointInfo);
 
     axios
       .get(endpointInfo)
@@ -33,7 +32,6 @@ export default function MovieDetail() {
 
     axios.get(endpointCrew).then((res) => {
       setCasts(res.data.cast);
-      console.log(casts);
     });
   }, []);
 
@@ -69,7 +67,7 @@ export default function MovieDetail() {
                     image={
                       cast.profile_path
                         ? `${IMAGE_BASE_URL}w500/${cast.profile_path}`
-                        : null
+                        : 'https://st3.depositphotos.com/9998432/13335/v/600/depositphotos_133351928-stock-illustration-default-placeholder-man-and-woman.jpg'
                     }
                     characterName={cast.name}
                   />
