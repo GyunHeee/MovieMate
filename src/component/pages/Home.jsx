@@ -39,6 +39,7 @@ export default function Home() {
                     ? `${IMAGE_BASE_URL}w500/${movie.poster_path}`
                     : `${IMAGE_BASE_URL}w500/${movie.backdrop_path}`
                 }
+                homePage={true}
                 movieId={movie.id}
                 movieName={movie.original_title}
               />

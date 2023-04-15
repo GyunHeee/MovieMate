@@ -4,27 +4,38 @@ import { API_URL, IMAGE_BASE_URL } from '../Config';
 import { useParams } from 'react-router-dom';
 import MainImage from '../section/MainImage';
 import MovieInfo from '../section/MovieInfo';
+import GridCards from '../section/GridCards';
+import { Row } from 'antd';
+import { v4 as uuid } from 'uuid';
 
 export default function MovieDetail() {
   const API_KEY = process.env.REACT_APP_API_KEY;
   const { movieId } = useParams();
   const [movie, setMovie] = useState({});
+  const [casts, setCasts] = useState([]);
+  const [ActorToggle, setActorToggle] = useState(false);
+
+  const toggleActorView = () => {
+    setActorToggle(!ActorToggle);
+  };
 
   useEffect(() => {
     const endpointInfo = `${API_URL}movie/${movieId}?api_key=${API_KEY}`;
-    const endpointCredits = `${API_URL}movie/${movieId}/credits?api_key=${API_KEY}`;
+    const endpointCrew = `${API_URL}movie/${movieId}/credits?api_key=${API_KEY}`;
     console.log(endpointInfo);
 
     axios
       .get(endpointInfo)
       .then((res) => {
-        console.log(res);
         setMovie(res.data);
       })
       .catch(console.error);
-  }, []);
 
-  console.log(movie.backdrop_path);
+    axios.get(endpointCrew).then((res) => {
+      setCasts(res.data.cast);
+      console.log(casts);
+    });
+  }, []);
 
   return (
     <div>
@@ -48,7 +59,23 @@ export default function MovieDetail() {
         <div
           style={{ display: 'flex', justifyContent: 'center', margin: '2rem' }}
         >
-          <button> Toggle Actor View</button>
+          <button onClick={toggleActorView}> Toggle Actor View</button>
+          {ActorToggle && (
+            <Row gutter={[16, 16]}>
+              {casts &&
+                casts.map((cast) => (
+                  <GridCards
+                    key={uuid()}
+                    image={
+                      cast.profile_path
+                        ? `${IMAGE_BASE_URL}w500/${cast.profile_path}`
+                        : null
+                    }
+                    characterName={cast.name}
+                  />
+                ))}
+            </Row>
+          )}
         </div>
       </div>
     </div>
