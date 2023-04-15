@@ -10,17 +10,35 @@ export default function Home() {
 
   const [movies, setMovies] = useState([]);
   const [mainMovie, setMainMovide] = useState(null);
+  const [currentPage, setCurrentPage] = useState(0);
 
-  useEffect(() => {
+  const fetchMovies = useEffect(() => {
     const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
     axios
       .get(endpoint)
       .then((res) => {
+        console.log(res);
         setMovies([...res.data.results]);
         setMainMovide(res.data.results[0]);
+        setCurrentPage(res.data.page);
       })
       .catch(console.error);
   }, []);
+
+  const loadMoreItems = () => {
+    const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=${
+      currentPage + 1
+    }`;
+    axios
+      .get(endpoint)
+      .then((res) => {
+        console.log(res);
+        setMovies([...movies, ...res.data.results]);
+        setMainMovide(...mainMovie, res.data.results[0]);
+        setCurrentPage(res.data.page);
+      })
+      .catch(console.error);
+  };
 
   return (
     <div>
@@ -41,6 +59,7 @@ export default function Home() {
           {movies &&
             movies.map((movie) => (
               <GridCards
+                key={movie.id}
                 image={`${IMAGE_BASE_URL}w500/${movie.backdrop_path}`}
                 movieId={movie.id}
                 movieName={movie.original_title}
@@ -50,7 +69,7 @@ export default function Home() {
       </div>
 
       <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <button>Load More</button>
+        <button onClick={loadMoreItems}>Load More</button>
       </div>
     </div>
   );
