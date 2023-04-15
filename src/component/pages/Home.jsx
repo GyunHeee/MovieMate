@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { API_URL, IMAGE_BASE_URL } from '../Config';
 import axios from 'axios';
 import MainImage from '../section/MainImage';
+import { Row } from 'antd';
+import GridCards from '../section/GridCards';
 
 export default function Home() {
   const API_KEY = process.env.REACT_APP_API_KEY;
@@ -35,6 +37,16 @@ export default function Home() {
         <hr />
 
         {/*Movie Grid Cards */}
+        <Row gutter={[16, 16]}>
+          {movies &&
+            movies.map((movie) => (
+              <GridCards
+                image={`${IMAGE_BASE_URL}w500/${movie.backdrop_path}`}
+                movieId={movie.id}
+                movieName={movie.original_title}
+              />
+            ))}
+        </Row>
       </div>
 
       <div style={{ display: 'flex', justifyContent: 'center' }}>
