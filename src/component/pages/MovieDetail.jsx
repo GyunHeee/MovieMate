@@ -7,6 +7,18 @@ import MovieInfo from '../section/MovieInfo';
 import GridCards from '../section/GridCards';
 import { Row } from 'antd';
 import { v4 as uuid } from 'uuid';
+import styled from 'styled-components';
+
+const Wrapper = styled.div`
+  width: 85%;
+  margin: 1rem auto;
+`;
+
+const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  margin: 2rem;
+`;
 
 export default function MovieDetail() {
   const API_KEY = process.env.REACT_APP_API_KEY;
@@ -47,16 +59,14 @@ export default function MovieDetail() {
         text={movie.overview}
       />
 
-      <div style={{ width: '85%', margin: '1rem auto' }}>
+      <Wrapper>
         {/* Movie Info*/}
 
         <MovieInfo movie={movie} />
 
         <br />
         {/* Actors Grid*/}
-        <div
-          style={{ display: 'flex', justifyContent: 'center', margin: '2rem' }}
-        >
+        <ButtonWrapper>
           <button onClick={toggleActorView}> Toggle Actor View</button>
           {ActorToggle && (
             <Row gutter={[16, 16]}>
@@ -74,8 +84,8 @@ export default function MovieDetail() {
                 ))}
             </Row>
           )}
-        </div>
-      </div>
+        </ButtonWrapper>
+      </Wrapper>
     </div>
   );
 }
