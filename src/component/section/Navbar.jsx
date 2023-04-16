@@ -36,10 +36,10 @@ export default function Navbar() {
 
   return (
     <NavHeader>
-      <NavTitle>MovieMate</NavTitle>
+      <NavTitle onClick={() => navigate('/')}>MovieMate</NavTitle>
       <NavLinks>
         <p onClick={() => navigate('/')}>Home</p>
-        <p>About Us</p>
+        <p onClick={() => navigate('/about')}>About Us</p>
       </NavLinks>
     </NavHeader>
   );
