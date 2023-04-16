@@ -67,7 +67,7 @@ export default function MovieDetail() {
         <br />
         {/* Actors Grid*/}
         <ButtonWrapper>
-          <button onClick={toggleActorView}> Toggle Actor View</button>
+          <button onClick={toggleActorView}>Watching Actor</button>
           {ActorToggle && (
             <Row gutter={[16, 16]}>
               {casts &&
