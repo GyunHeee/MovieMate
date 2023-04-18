@@ -27,14 +27,14 @@
 
 ## 사용 기술
 
-React, styled-component, react-router-dom, ant-design, moviedb API
+React, Styled-components, React Router DOM, ant-design, TMDP API
 
 ## 배운 점
 
 - ant-Design 사용
 - styled-component
 - 리팩토링 by 커스텀 훅
-- moviedb API
+- TMDB API
 
 ## Deploy
 
