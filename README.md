@@ -27,12 +27,12 @@
 
 ## 사용 기술
 
-React, Styled-components, React Router DOM, ant-design, TMDP API
+React, Styled-components, React Router DOM, Ant Design, TMDP API
 
 ## 배운 점
 
-- ant-Design 사용
-- styled-component
+- Ant Design 사용
+- Styled-components
 - 리팩토링 by 커스텀 훅
 - TMDB API
 
