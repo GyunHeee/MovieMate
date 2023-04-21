@@ -14,9 +14,6 @@
 
 <img width="1714" alt="스크린샷 2023-04-17 오전 12 50 38" src="https://user-images.githubusercontent.com/92011224/232326698-9ed3b8f8-54cb-48da-8eb1-f34e09e6d84d.png">
 
-### About Us page
-
-<img width="1714" alt="스크린샷 2023-04-17 오전 1 01 23" src="https://user-images.githubusercontent.com/92011224/232327008-d13e5502-1d69-4c04-8160-9f8b39d8fbf7.png">
 
 ##
 
